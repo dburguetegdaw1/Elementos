@@ -53,7 +53,7 @@ public class MenuInicio {
 	
 	
 	/**
-	 * Crea una partida nueva
+	 * Crea una partida nuevaaaaaaaaa
 	 * Si ya hay 3 ficheros guardados, redirecciona a cargar()
 	 * En cualquier otro caso, pide al usuario un nombre para el archivo de guardado
 	 * y le manda instananeamente a crearPartidaNueva()
