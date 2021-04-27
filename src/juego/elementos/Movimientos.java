@@ -43,7 +43,7 @@ public class Movimientos {
 				aAprender = movs[e.getNivel()/5];
 				break;
 			case 2:
-				aAprender = movs[e.getNivel()/5];
+				//aAprender = movs[e.getNivel()/5];
 				break;
 			case 3:
 				

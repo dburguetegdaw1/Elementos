@@ -26,8 +26,13 @@ public class Jugador {
 		}
 	}
 	
-	public Jugador(String nom, int med, Elemento e) {
-		
+	public Jugador(String nomFich, String nom, Elemento e) {
+		nombreFicheroGuardado = nomFich;
+		nombreJugador = nom;
+		medallas = 0;
+		elementos = new ArrayList<>();
+		elementos.add(e);
+		guardar();
 	}
 	
 	private void cargar(BufferedReader fR) {
@@ -97,8 +102,8 @@ public class Jugador {
 		
 	}
 	
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		Jugador j = new Jugador("C:\\Users\\david\\Desktop\\Combate_Rol\\Archivos_de_guardado\\Eledenthas.txt");
 		j.guardar();
-	}
+	}*/
 }

@@ -28,7 +28,7 @@ public class MenuInicio {
 		System.out.println();
 		int op = sc.nextInt();
 		if(op < 1 || op > 3) {
-			System.out.println("\t EL VALOR INTRODUCIDO NO ES VÁLIDO");
+			System.out.println("\t EL VALOR INTRODUCIDO NO ES Vï¿½LIDO");
 			try {
 	            Thread.sleep(3*1000);
 	         } catch (Exception e) {
@@ -70,11 +70,13 @@ public class MenuInicio {
 		else {
 			sc = new Scanner(System.in);
 			System.out.println("Introduce un nombre (una palabra) para esta nueva partida:");
+			String nomFich = sc.next();
 			try {
-				fW = new FileWriter("Archivos_de_guardado\\" + sc.next() + ".txt");
+				fW = new FileWriter("Archivos_de_guardado\\" + nomFich + ".txt");
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
+			NuevaPartida n = new NuevaPartida(nomFich);
 		}
 		sc.close();
 		try {
@@ -107,7 +109,7 @@ public class MenuInicio {
 			
 		}
 		else if(op-1 >= archivos.length && op < 4) {
-			System.out.println("Este espacio está vacio");
+			System.out.println("Este espacio estï¿½ vacio");
 			try {
 	            Thread.sleep(3*1000);
 	         } catch (Exception e) {
@@ -117,7 +119,7 @@ public class MenuInicio {
 			nueva();
 		}
 		else {
-			System.out.println("Opcion no válida");
+			System.out.println("Opcion no vï¿½lida");
 			try {
 	            Thread.sleep(3*1000);
 	         } catch (Exception e) {
@@ -163,7 +165,7 @@ public class MenuInicio {
 				System.out.println("Archivo borrado");
 			}
 			else {
-				System.out.println("Este espacio está vacio");
+				System.out.println("Este espacio estï¿½ vacio");
 				try {
 		            Thread.sleep(3*1000);
 		         } catch (Exception e) {
