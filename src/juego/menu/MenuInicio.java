@@ -11,6 +11,7 @@ public class MenuInicio {
 		mi.desplegarMenu();
 	}
 	
+	@SuppressWarnings("resource")
 	public void desplegarMenu() {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("_________  ____      _________  _____  _____  _________  ____  ____  _____________   ");
@@ -28,7 +29,7 @@ public class MenuInicio {
 		System.out.println();
 		int op = sc.nextInt();
 		if(op < 1 || op > 3) {
-			System.out.println("\t EL VALOR INTRODUCIDO NO ES V�LIDO");
+			System.out.println("\t EL VALOR INTRODUCIDO NO ES VÁLIDO");
 			try {
 	            Thread.sleep(3*1000);
 	         } catch (Exception e) {
@@ -48,23 +49,23 @@ public class MenuInicio {
 				borrar();
 				break;
 		}
-		sc.close();
 	}
 	
 	
 	/**
-	 * Crea una partida nuevaaaaaaaaa
+	 * Crea una partida nueva
 	 * Si ya hay 3 ficheros guardados, redirecciona a cargar()
 	 * En cualquier otro caso, pide al usuario un nombre para el archivo de guardado
 	 * y le manda instananeamente a crearPartidaNueva()
 	 */
+	@SuppressWarnings("unused")
 	private void nueva() {
 		Scanner sc = null;
 		FileWriter fW = null;
 		File fich = new File("Archivos_de_guardado");
 		String[] archivos = fich.list();
 		if(archivos.length >= 3) {
-			System.out.println("Los espacios de guardado de juego estan completos\nDebes cargar un nuevo archivo:");
+			System.out.println("Los espacios de guardado de juego están completos\nDebes cargar un nuevo archivo:");
 			cargar();
 		}
 		else {
@@ -78,7 +79,6 @@ public class MenuInicio {
 			}
 			NuevaPartida n = new NuevaPartida(nomFich);
 		}
-		sc.close();
 		try {
 			fW.close();
 		} catch (IOException e) {
@@ -91,6 +91,7 @@ public class MenuInicio {
 	 * para despues listarlos y escoger
 	 * Si ya hay un archivo, lo carga, sino, crea uno nuevo
 	 */
+	@SuppressWarnings("resource")
 	private void cargar() {
 		File fich = new File("Archivos_de_guardado");
 		String[] archivos = fich.list();
@@ -109,7 +110,7 @@ public class MenuInicio {
 			
 		}
 		else if(op-1 >= archivos.length && op < 4) {
-			System.out.println("Este espacio est� vacio");
+			System.out.println("Este espacio está vacío");
 			try {
 	            Thread.sleep(3*1000);
 	         } catch (Exception e) {
@@ -119,7 +120,7 @@ public class MenuInicio {
 			nueva();
 		}
 		else {
-			System.out.println("Opcion no v�lida");
+			System.out.println("Opcion no válida");
 			try {
 	            Thread.sleep(3*1000);
 	         } catch (Exception e) {
@@ -128,24 +129,22 @@ public class MenuInicio {
 			try {new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();} catch (Exception e) {}
 			cargar();
 		}
-		sc.close();
 	}
 	
 	/**
 	 * 
 	 */
+	@SuppressWarnings("resource")
 	private void borrar() {
 		File fich = new File("Archivos_de_guardado");
 		String[] archivos = fich.list();
 		if(archivos.length == 0){
-			System.out.println("No hay ningun archivo a borrar");
+			System.out.println("No hay ningún archivo a borrar");
 			try {
 	            Thread.sleep(3*1000);
 	         } catch (Exception e) {
 	            System.out.println(e);
 	         }
-			try {new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();} catch (Exception e) {}
-			desplegarMenu();
 		}
 		else {
 			System.out.println("Borrar archivo");
@@ -165,7 +164,7 @@ public class MenuInicio {
 				System.out.println("Archivo borrado");
 			}
 			else {
-				System.out.println("Este espacio est� vacio");
+				System.out.println("Este espacio está vacio");
 				try {
 		            Thread.sleep(3*1000);
 		         } catch (Exception e) {
@@ -174,7 +173,8 @@ public class MenuInicio {
 				try {new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();} catch (Exception e) {}
 				borrar();
 			}
-			sc.close();
 		}
+		try {new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();} catch (Exception e) {}
+		desplegarMenu();
 	}
 }

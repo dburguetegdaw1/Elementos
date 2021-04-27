@@ -91,7 +91,7 @@ public class Jugador {
 	}
 	
 	public void guardar() {
-		File f = new File(nombreFicheroGuardado);
+		File f = new File("Archivos_de_guardado\\" + nombreFicheroGuardado + ".txt");
 		try {
 			FileWriter fW = new FileWriter(f);
 			fW.write(toString());

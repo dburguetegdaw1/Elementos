@@ -8,8 +8,9 @@ import java.util.Scanner;
 public class NuevaPartida {
 	private Elemento e1;
 	
+	@SuppressWarnings({ "resource", "unused" })
 	public NuevaPartida(String nomFich) {
-		try {Thread.sleep(3*1000);} catch (Exception e) {System.out.println(e);}
+		try {Thread.sleep(0*1000);} catch (Exception e) {System.out.println(e);}
 		e1 = null;
 		int op = saludar();
 		switch(op){
@@ -29,11 +30,11 @@ public class NuevaPartida {
 		System.out.println("Bueno, ahora está todo listo...");
 		try {Thread.sleep(3*1000);} catch (Exception e) {System.out.println(e);}
 		System.out.println("¡Así que buena suerte! (Recuerda que es mi primera versión de juegos a gran nivel)");
-		System.out.println("\tDavid Burguete");
+		System.out.println("\tDavid Burguete - Creador del proyecto");
 		Jugador j = new Jugador(nomFich, nom, e1);
-		sc.close();
 	}
 	
+	@SuppressWarnings("resource")
 	private int saludar() {
 		try {new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();} catch (Exception e) {}
 		System.out.println("¡Bienvenido! Esto, antes de que lo preguntes, no, no es un plagio de Pokémon");
@@ -53,10 +54,10 @@ public class NuevaPartida {
 		if(op < 1 || op > 3){
 			op = reelige();
 		}
-		sc.close();
 		return op;
 	}
 	
+	@SuppressWarnings("resource")
 	private int reelige(){
 		try {new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();} catch (Exception e) {}
 		System.out.println("Bienvenido! Esto, antes de que lo preguntes, no, no es un plagio de Pokemon");
@@ -72,7 +73,6 @@ public class NuevaPartida {
 		if(op < 1 || op > 3){
 			op = reelige();
 		}
-		sc.close();
 		return op;
 	}
 }
