@@ -31,6 +31,7 @@ public class NuevaPartida {
 		try {Thread.sleep(3*1000);} catch (Exception e) {System.out.println(e);}
 		System.out.println("¡Así que buena suerte! (Recuerda que es mi primera versión de juegos a gran nivel)");
 		System.out.println("\tDavid Burguete - Creador del proyecto");
+		try {Thread.sleep(3*1000);} catch (Exception e) {System.out.println(e);}
 		Jugador j = new Jugador(nomFich, nom, e1);
 	}
 	

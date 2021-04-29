@@ -19,7 +19,7 @@ public class Jugador {
 		elementos = new ArrayList<>();
 		BufferedReader fR = null;
 		try {
-			fR = new BufferedReader(new FileReader(nomFichero));
+			fR = new BufferedReader(new FileReader("Archivos_de_guardado\\" + nomFichero + ".txt"));
 			cargar(fR);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();

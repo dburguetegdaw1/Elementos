@@ -27,6 +27,9 @@ public class MenuInicio {
 		System.out.println("\t\t\t3.-BORRAR PARTIDA");
 		System.out.println();
 		System.out.println();
+		System.out.println("Version Alfa.2.1");
+		System.out.println();
+		System.out.println();
 		int op = sc.nextInt();
 		if(op < 1 || op > 3) {
 			System.out.println("\t EL VALOR INTRODUCIDO NO ES VÁLIDO");
@@ -58,20 +61,22 @@ public class MenuInicio {
 	 * En cualquier otro caso, pide al usuario un nombre para el archivo de guardado
 	 * y le manda instananeamente a crearPartidaNueva()
 	 */
-	@SuppressWarnings("unused")
+	@SuppressWarnings({ "unused", "resource" })
 	private void nueva() {
 		Scanner sc = null;
 		FileWriter fW = null;
+		String nomFich = "";
 		File fich = new File("Archivos_de_guardado");
 		String[] archivos = fich.list();
 		if(archivos.length >= 3) {
 			System.out.println("Los espacios de guardado de juego están completos\nDebes cargar un nuevo archivo:");
 			cargar();
+			return;
 		}
 		else {
 			sc = new Scanner(System.in);
 			System.out.println("Introduce un nombre (una palabra) para esta nueva partida:");
-			String nomFich = sc.next();
+			nomFich = sc.next();
 			try {
 				fW = new FileWriter("Archivos_de_guardado\\" + nomFich + ".txt");
 			} catch (IOException e) {
@@ -84,6 +89,8 @@ public class MenuInicio {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		MenuJuego mJ = new MenuJuego(nomFich);
+		mJ.desplegarAreas();
 	}
 	
 	/**
@@ -107,7 +114,8 @@ public class MenuInicio {
 		Scanner sc = new Scanner(System.in);
 		int op = sc.nextInt();
 		if(op-1 < archivos.length && op > 0) {
-			
+			MenuJuego mJ = new MenuJuego(archivos[op-1]);
+			mJ.desplegarAreas();
 		}
 		else if(op-1 >= archivos.length && op < 4) {
 			System.out.println("Este espacio está vacío");
