@@ -18,6 +18,7 @@ public class CentroClinico {
 	 */
 	@SuppressWarnings("resource")
 	public void menu() {
+		try {new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();} catch (Exception e) {}
 		Scanner sc = new Scanner(System.in);
 		System.out.println("");
 		System.out.println("                           _________________");

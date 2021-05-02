@@ -23,7 +23,7 @@ public class Jugador {
 		elementos = new ArrayList<>();
 		BufferedReader fR = null;
 		try {
-			fR = new BufferedReader(new FileReader("Archivos_de_guardado\\" + nomFichero + ".txt"));
+			fR = new BufferedReader(new FileReader("Archivos_de_guardado\\" + nomFichero));
 			cargar(fR);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -114,7 +114,7 @@ public class Jugador {
 	 * Guarda la partida escribiendo en un fichero
 	 */
 	public void guardar() {
-		File f = new File("Archivos_de_guardado\\" + nombreFicheroGuardado + ".txt");
+		File f = new File("Archivos_de_guardado\\" + nombreFicheroGuardado);
 		try {
 			FileWriter fW = new FileWriter(f);
 			fW.write(toString());

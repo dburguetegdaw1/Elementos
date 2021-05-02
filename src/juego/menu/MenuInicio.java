@@ -24,6 +24,7 @@ public class MenuInicio {
 	 * Existe una cuarta opción para salir del método
 	 */
 	public void desplegarMenu() {
+		try {new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();} catch (Exception e) {}
 		Scanner sc = new Scanner(System.in);
 		System.out.println("_________  ____      _________  _____  _____  _________  ____  ____  _____________   ");
 		System.out.println("\\   ____/  \\  /      \\   ____/  \\   /  \\   /  \\   ____/  \\   \\|   /  \\           /   ______");
@@ -46,11 +47,7 @@ public class MenuInicio {
 		//Comprobar que la opción es válida
 		if(op < 1 || op > 4) {
 			System.out.println("\t EL VALOR INTRODUCIDO NO ES VÁLIDO");
-			try {
-	            Thread.sleep(3*1000);
-	         } catch (Exception e) {
-	            System.out.println(e);
-	         }
+			try {Thread.sleep(3*1000);} catch (Exception e) {System.out.println(e);}
 			try {new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();} catch (Exception e) {}
 			desplegarMenu();
 		}
@@ -100,7 +97,7 @@ public class MenuInicio {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			NuevaPartida n = new NuevaPartida(nomFich);
+			NuevaPartida n = new NuevaPartida(nomFich + ".txt");
 		}
 		try {
 			fW.close();

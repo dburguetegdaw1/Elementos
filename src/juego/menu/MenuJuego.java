@@ -27,7 +27,7 @@ public class MenuJuego {
 	@SuppressWarnings("resource")
 	public void desplegarAreas() {
 		String terminar = "";
-		while(terminar.equals("")) {
+		do {
 			try {new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();} catch (Exception e) {}
 			System.out.println("                      _______________________________________");
 			System.out.println(" _              _    |                                       |                     ");
@@ -85,6 +85,6 @@ public class MenuJuego {
 					terminar = mJ.menu();
 					break;
 			}
-		}
+		}while(terminar.equals(""));
 	}
 }

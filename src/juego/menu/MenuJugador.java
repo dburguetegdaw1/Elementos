@@ -20,6 +20,7 @@ public class MenuJugador {
 	  */
 	@SuppressWarnings("resource")
 	public String menu() {
+		try {new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();} catch (Exception e) {}
 		String terminar = "";
 		System.out.println("1.Información");
 		System.out.println("2.Volver");
@@ -33,7 +34,7 @@ public class MenuJugador {
 		System.out.println("");
 		Scanner sc = new Scanner(System.in);
 		int op = sc.nextInt();
-		if(op < 1 || op > 4) {
+		if(op < 1 || op > 5) {
 			System.out.println("\t EL VALOR INTRODUCIDO NO ES VÁLIDO");
 			try {Thread.sleep(3*1000);} catch (Exception e) {System.out.println(e);}
 			try {new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();} catch (Exception e) {}
@@ -42,15 +43,17 @@ public class MenuJugador {
 		switch(op) {
 			case 1:
 				try {new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();} catch (Exception e) {}
-				j.toString();
-				sc.next();
+				System.out.println(j.toString());
+				sc.nextLine();
+				sc.nextLine();
 				break;
 			case 2:
 				//Volver al juego
 				break;
 			case 3:
 				creditos();
-				sc.next();
+				sc.nextLine();
+				sc.nextLine();
 				break;
 			case 4:
 				j.guardar();
@@ -74,6 +77,6 @@ public class MenuJugador {
 		System.out.println("\tDavid Burguete");
 		System.out.println("-VERSIÓN-");
 		System.out.println("\tvAlfa.3.0");
-		System.out.println("\t(Para nada) basado een los juegos de Nintendo de Pokémon");
+		System.out.println("\t(Para nada) basado en los juegos de Nintendo de Pokémon");
 	}
 }
