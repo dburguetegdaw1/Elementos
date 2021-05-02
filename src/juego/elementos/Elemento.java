@@ -15,6 +15,22 @@ public class Elemento {
 	int ataque;
 	int defensa;
 	List<String> mov;
+	
+	/**
+	 * Constructor de la clase. Crea un único elemento
+	 * Puede ser para añadir a la lista del jugador, de un coliseo
+	 * o bien ser un elemento salvaje
+	 * @param nombre
+	 * @param tE
+	 * @param id
+	 * @param nivel
+	 * @param exp
+	 * @param vida
+	 * @param vidaMax
+	 * @param ataque
+	 * @param defensa
+	 * @param movs
+	 */
 	public Elemento(String nombre, TiposDeElemento tE, String id, 
 			int nivel, int exp, int vida, int vidaMax, 
 			int ataque,int defensa, String movs) {
@@ -64,6 +80,9 @@ public class Elemento {
 	public Object[] getMov() {
 		Object[] movs = mov.toArray();
 		return movs;
+	}
+	public void setVida(int vida) {
+		this.vida = vida;
 	}
 	
 }

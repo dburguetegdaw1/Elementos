@@ -6,12 +6,23 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class MenuInicio {
+	/**
+	 * Inicializador del juego
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		MenuInicio mi = new MenuInicio();
 		mi.desplegarMenu();
 	}
 	
-	@SuppressWarnings("resource")
+	/**
+	 * Menú inicial
+	 * Llama a 3 posibles métodos para 
+	 * 1.Crear una nueva partida
+	 * 2.Cargar una partida ya existente
+	 * 3.Eliminar una partida
+	 * Existe una cuarta opción para salir del método
+	 */
 	public void desplegarMenu() {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("_________  ____      _________  _____  _____  _________  ____  ____  _____________   ");
@@ -25,13 +36,15 @@ public class MenuInicio {
 		System.out.println("\t\t\t1.-NUEVO JUEGO");
 		System.out.println("\t\t\t2.-CARGAR PARTIDA");
 		System.out.println("\t\t\t3.-BORRAR PARTIDA");
+		System.out.println("\t\t\t4.-SALIR");
 		System.out.println();
 		System.out.println();
-		System.out.println("Version Alfa.2.1");
+		System.out.println("Version Alfa.3.0");
 		System.out.println();
 		System.out.println();
 		int op = sc.nextInt();
-		if(op < 1 || op > 3) {
+		//Comprobar que la opción es válida
+		if(op < 1 || op > 4) {
 			System.out.println("\t EL VALOR INTRODUCIDO NO ES VÁLIDO");
 			try {
 	            Thread.sleep(3*1000);
@@ -41,17 +54,22 @@ public class MenuInicio {
 			try {new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();} catch (Exception e) {}
 			desplegarMenu();
 		}
+		//Según la opción, llama a un método, y al terminar, vuelve a llamar al menú
 		switch(op) {
 			case 1:
 				nueva();
+				desplegarMenu();
 				break;
 			case 2:
 				cargar();
+				desplegarMenu();
 				break;
 			case 3:
 				borrar();
+				desplegarMenu();
 				break;
 		}
+		sc.close();
 	}
 	
 	
@@ -140,7 +158,9 @@ public class MenuInicio {
 	}
 	
 	/**
-	 * 
+	 * Elimina un archivo de partida
+	 * Solamente elimina antes de cargar una partida, sino se debe cerrar
+	 * y volver a abrir
 	 */
 	@SuppressWarnings("resource")
 	private void borrar() {
@@ -183,6 +203,5 @@ public class MenuInicio {
 			}
 		}
 		try {new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();} catch (Exception e) {}
-		desplegarMenu();
 	}
 }

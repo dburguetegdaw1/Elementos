@@ -8,6 +8,12 @@ import java.util.Scanner;
 public class NuevaPartida {
 	private Elemento e1;
 	
+	/**
+	 * Clase que crea una nueva partida
+	 * Al estilo Pokémon te da a elegir entre 3 pokémons iniciales
+	 * y te pregunta por el nombre
+	 * @param nomFich (Ruta donde se guardará la partida)
+	 */
 	@SuppressWarnings({ "resource", "unused" })
 	public NuevaPartida(String nomFich) {
 		try {Thread.sleep(0*1000);} catch (Exception e) {System.out.println(e);}
@@ -35,6 +41,10 @@ public class NuevaPartida {
 		Jugador j = new Jugador(nomFich, nom, e1);
 	}
 	
+	/**
+	 * Método que te pregunta por el tipo de elemento que deseas
+	 * @return La elección tomada en forma de número
+	 */
 	@SuppressWarnings("resource")
 	private int saludar() {
 		try {new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();} catch (Exception e) {}
@@ -58,6 +68,10 @@ public class NuevaPartida {
 		return op;
 	}
 	
+	/**
+	 * Método que es llamado en caso de no introducir bien un número
+	 * @return
+	 */
 	@SuppressWarnings("resource")
 	private int reelige(){
 		try {new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();} catch (Exception e) {}

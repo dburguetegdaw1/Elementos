@@ -14,6 +14,10 @@ public class Jugador {
 	int medallas;
 	ArrayList<Elemento> elementos;
 	
+	/**
+	 * Constructor usado al cargar partida
+	 * @param nomFichero (Ruta donde se encuentra el fichero de guardado a cargar)
+	 */
 	public Jugador(String nomFichero) {
 		nombreFicheroGuardado = nomFichero;
 		elementos = new ArrayList<>();
@@ -26,6 +30,12 @@ public class Jugador {
 		}
 	}
 	
+	/**
+	 * Constructor que es usado al crear una nueva partida
+	 * @param nomFich (Ruta donde se guardará el Fichero)
+	 * @param nom (Nombre del jugador)
+	 * @param e (Elemento inicial usado por el usuario)
+	 */
 	public Jugador(String nomFich, String nom, Elemento e) {
 		nombreFicheroGuardado = nomFich;
 		nombreJugador = nom;
@@ -35,11 +45,17 @@ public class Jugador {
 		guardar();
 	}
 	
+	/**
+	 * Método que carga el fichero de partida
+	 * @param fR (el fichero)
+	 */
 	private void cargar(BufferedReader fR) {
 		try {
+			//Carga del nombre y medallas logradas
 			nombreJugador = fR.readLine().split(":")[1].trim();
 			medallas = Integer.parseInt(fR.readLine().split(":")[1].trim());
 			String bufferLectura = fR.readLine();
+			//Carga cada uno de los elementos y los guarda en el ArrayList
 			while( bufferLectura != null ) {
 				fR.readLine();
 				fR.readLine();
@@ -65,7 +81,11 @@ public class Jugador {
 		}
 	}
 	
-	
+	/**
+	 * Muestra en pantalla los datos del jugador
+	 * También es usado para guardar la partida
+	 * @return el String con la información
+	 */
 	public String toString() {
 		String linea = "";
 		linea += "Nombre: " + nombreJugador + "\n";
@@ -90,6 +110,9 @@ public class Jugador {
 		return linea;
 	}
 	
+	/**
+	 * Guarda la partida escribiendo en un fichero
+	 */
 	public void guardar() {
 		File f = new File("Archivos_de_guardado\\" + nombreFicheroGuardado + ".txt");
 		try {
@@ -100,6 +123,15 @@ public class Jugador {
 			e.printStackTrace();
 		}
 		
+	}
+	
+	/**
+	 * Método que cura a los elementos
+	 */
+	public void sanar() {
+		for (int i = 0; i < elementos.size(); i++) {
+			elementos.get(i).setVida(elementos.get(i).getVidaMax());
+		}
 	}
 	
 	/*public static void main(String[] args) {

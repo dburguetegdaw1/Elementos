@@ -5,6 +5,12 @@ import java.util.HashMap;
 public class Nombres {
 	HashMap<Integer, String[]> nombres;
 
+	/**
+	 * Constructor de los posible elementos
+	 * Clasificados en 6 grupos por elementos, están colocados
+	 * las 3 evoluciones en orden de cada uno de los 3 elementos 
+	 * de ese tipo en concreto
+	 */
 	public Nombres() {
 		nombres = new HashMap<>();
 		String[] tierra = {"Fango","Arcilla","Golem","Semilla","Brote","Ent","Lombriz","Serpiente","Hidra"};
@@ -21,6 +27,11 @@ public class Nombres {
 		nombres.put(6, muerte);
 	}
 	
+	/**
+	 * Método que devuelve el nombre de un elemento según su ID
+	 * @param nom (String que representa el ID del elemento)
+	 * @return el nombre del elemento según el @param
+	 */
 	public String getNombre(String nom) {
 		String noms[] = nom.split("-");
 		String nombre = "";
@@ -47,34 +58,13 @@ public class Nombres {
 		return nombre;
 	}
 	
-	public String getId() {
-		String id = "";
-		
-		return id;
-	}
-	
+	/**
+	 * Método que devuelve el tipo de elemento según una ID
+	 * @param id (Integer que representa el ID del tipo del elemento)
+	 * @return el tipo del elemento según el @param
+	 */
 	public TiposDeElemento element(int id) {
-		TiposDeElemento tE = null;
-		switch(id) {
-		case 1:
-			tE = TiposDeElemento.Tierra;
-			break;
-		case 2:
-			tE = TiposDeElemento.Agua;
-			break;
-		case 3:
-			tE = TiposDeElemento.Aire;
-			break;
-		case 4:
-			tE = TiposDeElemento.Fuego;
-			break;
-		case 5:
-			tE = TiposDeElemento.Vida;
-			break;
-		case 6:
-			tE = TiposDeElemento.Muerte;
-			break;
-		}
+		TiposDeElemento tE = TiposDeElemento.values()[id-1];
 		return tE;
 	}
 }
