@@ -7,6 +7,7 @@ public class CotoDeCaza {
 
 	
 	public void interfazCampo() {
+		try {new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();} catch (Exception e) {}
 		System.out.println("");
 		System.out.println("");
 		System.out.println("");
@@ -57,15 +58,16 @@ public class CotoDeCaza {
 		}
 		System.out.println("¿Quieres seguir buscando elementos?(S/N)");
 		Scanner sc = new Scanner(System.in);
-		char op = sc.next().toUpperCase().charAt(0);
-		do {
-			if(op == 'S') interfazCampo();
-			else if(op == 'N') {/*Salir del método*/}
+		String op = sc.next().toUpperCase();
+		while(!(op.equals("S")) || !(op.equals("N"))) {
+			if (op.equals("S")) interfazCampo();
+			else if (op.equals("N")) 
+				break;
 			else {
 				System.out.println("¡OPCIÓN INCORRECTA!");
-				op = sc.next().toUpperCase().charAt(0);
+				op = sc.next().toUpperCase();
 			}
-		}while(op != 'S' && op != 'N');
+		};
 	}
 	
 	private void combate() {
