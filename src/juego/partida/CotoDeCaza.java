@@ -35,17 +35,21 @@ public class CotoDeCaza {
 		System.out.println("   \\\\|// \\\\|// \\\\|/// \\\\|//  \\\\|// \\\\\\|///");
 		System.out.println("   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
 		System.out.println("Estas a la espera de ver si aparece algún elemento en estado salvaje...");
-		esperar();
+		boolean pac = esperar();
+		do {
+			pac = esperar();
+		}while (pac);
 	}
 	
 	@SuppressWarnings("resource")
-	private void esperar() {
+	private boolean esperar() {
+		boolean paciencia = false;
 		boolean aparecido = false;
 		for (int i = 0; i < 30; i++) {
 			try {Thread.sleep(1*1000);} catch (Exception e) {System.out.println(e);}
 			Random rand = new Random();
 			int num = (int) (rand.nextDouble() * 100 + 1);
-			if(num <= 10) {
+			if(num <= 5) {
 				System.out.println("Combate!");
 				aparecido = true;
 				try {Thread.sleep(1*1000);} catch (Exception e) {System.out.println(e);}
@@ -60,14 +64,19 @@ public class CotoDeCaza {
 		Scanner sc = new Scanner(System.in);
 		String op = sc.next().toUpperCase();
 		while(!(op.equals("S")) || !(op.equals("N"))) {
-			if (op.equals("S")) interfazCampo();
-			else if (op.equals("N")) 
+			if (op.equals("S")) {
+				paciencia = true;
 				break;
+			}
+			else if (op.equals("N")) {
+				break;
+			}
 			else {
 				System.out.println("¡OPCIÓN INCORRECTA!");
 				op = sc.next().toUpperCase();
 			}
-		};
+		}
+		return paciencia;
 	}
 	
 	private void combate() {
