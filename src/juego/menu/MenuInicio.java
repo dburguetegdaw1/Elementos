@@ -40,7 +40,7 @@ public class MenuInicio {
 		System.out.println("\t\t\t4.-SALIR");
 		System.out.println();
 		System.out.println();
-		System.out.println("Version Alfa.3.0");
+		System.out.println("Version Alfa.3.1");
 		System.out.println();
 		System.out.println();
 		int op = sc.nextInt();

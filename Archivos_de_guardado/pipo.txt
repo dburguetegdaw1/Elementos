@@ -1,0 +1,12 @@
+Nombre: rggt
+Medallas: 0
+Elemento 1:
+	Nombre: Pez
+	Tipo: Agua
+	Id: 2-04
+	Nivel: 1
+	Experiencia: 0
+	Vida: 10/10
+	Ataque: 9
+	Defensa: 13
+	Movimientos: Corriente marina

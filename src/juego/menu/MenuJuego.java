@@ -1,8 +1,8 @@
 package juego.menu;
 
 import java.util.Scanner;
-
 import juego.partida.CentroClinico;
+import juego.partida.CotoDeCaza;
 import juego.partida.Jugador;
 
 public class MenuJuego {
@@ -71,7 +71,8 @@ public class MenuJuego {
 			}
 			switch(op) {
 				case 1:
-					
+					CotoDeCaza cDC = new CotoDeCaza();
+					cDC.interfazCampo();
 					break;
 				case 2:
 					CentroClinico cc = new CentroClinico(j);
